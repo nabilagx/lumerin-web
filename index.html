@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lumerin Aja</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; }
     .card-3d { perspective: 1000px; }
     .card-inner {
@@ -15,187 +16,199 @@
     .card-3d:hover .card-inner {
       transform: rotateY(15deg) scale(1.05);
     }
-    .card-front {
-      backface-visibility: hidden;
-    }
-    .feature-img {
-      transition: transform 0.4s ease;
-    }
-    .feature-img:hover {
-      transform: scale(1.1) rotate(3deg);
-    }
+    .card-front { backface-visibility: hidden; }
+    .feature-img { transition: transform 0.4s ease; }
+    .feature-img:hover { transform: scale(1.1) rotate(3deg); }
     .scrolling-wrapper {
       display: flex;
       flex-wrap: nowrap;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      animation: scroll-left 20s linear infinite;
+      animation: scroll-left 40s linear infinite;
+      width: max-content;
+      gap: 1.5rem;
     }
-    @keyframes scroll {
+    .scrolling-container {
+      overflow: hidden;
+    }
+    .scrolling-wrapper:hover {
+      animation-play-state: paused;
+    }
+    @keyframes scroll-left {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
-    
-    .animate-scroll {
-      animation: scroll 40s linear infinite;
+    .scrolling-wrapper::-webkit-scrollbar { display: none; }
+    .wave:hover {
+      animation: wave-hand 0.6s ease-in-out infinite;
     }
-    
-    .scrolling-wrapper {
-      overflow: hidden;
-      white-space: nowrap;
+    @keyframes wave-hand {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(-10deg); }
+      50% { transform: rotate(10deg); }
+      75% { transform: rotate(-5deg); }
+      100% { transform: rotate(0deg); }
     }
   </style>
 </head>
 <body class="bg-pink-50 text-gray-800">
-  <!-- Hero Section -->
-  <section class="text-center py-20 px-4 bg-pink-100 relative overflow-hidden">
-    <img src="https://images.unsplash.com/photo-1597999709259-ec3cd5868421?q=80&w=1122&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Mascot" class="absolute bottom-0 left-0 w-32 md:w-40 animate-bounce">
-    <h1 class="text-4xl md:text-5xl font-bold text-pink-600 mb-4 relative z-10">Lumerin Aja 🍰</h1>
-    <p class="text-lg md:text-xl max-w-2xl mx-auto text-gray-600 relative z-10">Kue lembut, lumer di mulut, bikin harimu manis. Pesan sekarang dan rasakan kelezatannya!</p>
-    <a href="#order" class="inline-block mt-6 px-8 py-3 bg-pink-600 text-white font-semibold rounded-full shadow hover:bg-pink-700 transition relative z-10">Pesan Sekarang</a>
-  </section>
 
-  <!-- Features -->
-  <section class="py-16 px-4 bg-white">
-    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-      <div>
-        <img src="https://cdn-icons-png.flaticon.com/512/2965/2965567.png" alt="Fresh" class="feature-img w-24 h-24 mx-auto mb-4">
-        <h3 class="text-xl font-semibold mb-2 text-pink-600">Bahan Segar</h3>
-        <p class="text-gray-600">Dipanggang setiap hari dengan bahan pilihan tanpa pengawet.</p>
-      </div>
-      <div>
-        <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" alt="Delivery" class="feature-img w-24 h-24 mx-auto mb-4">
-        <h3 class="text-xl font-semibold mb-2 text-pink-600">Antar ke Rumah</h3>
-        <p class="text-gray-600">Tinggal klik, pesanan kamu langsung kami kirim ke depan pintu.</p>
-      </div>
-      <div>
-        <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" alt="Halal" class="feature-img w-24 h-24 mx-auto mb-4">
-        <h3 class="text-xl font-semibold mb-2 text-pink-600">Halal & Higienis</h3>
-        <p class="text-gray-600">Dibuat oleh tim dapur bersertifikat, aman dan halal 100%.</p>
-      </div>
-    </div>
-  </section>
+<!-- Hero Section -->
+<section class="text-center py-20 px-4 bg-pink-100 relative overflow-hidden">
+  <img src="https://cdn-icons-png.flaticon.com/512/8816/8816372.png" alt="Mascot" class="wave absolute bottom-0 left-4 w-24 md:w-32 animate-bounce cursor-pointer transition-transform" />
+  <h1 class="text-4xl md:text-5xl font-bold text-pink-600 mb-4 relative z-10">Lumerin Aja 🍰</h1>
+  <p class="text-lg md:text-xl max-w-2xl mx-auto text-gray-600 relative z-10">Kue lembut, lumer di mulut, bikin harimu manis. Pesan sekarang dan rasakan kelezatannya!</p>
+  <a href="#order" class="inline-block mt-6 px-8 py-3 bg-pink-600 text-white font-semibold rounded-full shadow hover:bg-pink-700 transition relative z-10">Pesan Sekarang</a>
+</section>
 
-  <!-- Product Showcase -->
-  <section class="py-16 px-4 bg-pink-100">
-    <div class="max-w-6xl mx-auto text-center mb-8">
-      <h2 class="text-3xl font-bold text-pink-700">Best Seller Kami</h2>
+<!-- Features -->
+<section class="py-16 px-4 bg-white">
+  <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+    <div>
+      <img src="https://cdn-icons-png.flaticon.com/512/2965/2965567.png" alt="Fresh" class="feature-img w-24 h-24 mx-auto mb-4">
+      <h3 class="text-xl font-semibold mb-2 text-pink-600">Bahan Segar</h3>
+      <p class="text-gray-600">Dipanggang setiap hari dengan bahan pilihan tanpa pengawet.</p>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 mx-auto max-w-6xl">
-      <div class="card-3d bg-transparent">
-        <div class="card-inner relative bg-white rounded-xl shadow-lg">
-          <div class="card-front">
-            <img src="https://images.unsplash.com/photo-1673551490243-f29547426841?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Choco Lava" class="rounded-t-xl w-full h-48 object-cover">
-            <div class="p-4">
-              <h4 class="text-lg font-semibold text-pink-700 mb-2">Choco Lava Melt</h4>
-              <p class="text-sm text-gray-600 mb-4">Cake coklat lumer isi ganache pekat</p>
-              <a href="#order" class="text-pink-600 font-medium hover:underline">Pesan Sekarang</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-3d bg-transparent">
-        <div class="card-inner relative bg-white rounded-xl shadow-lg">
-          <div class="card-front">
-            <img src="https://images.unsplash.com/photo-1586788680434-30d324b2d46f?q=80&w=951&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Red Velvet" class="rounded-t-xl w-full h-48 object-cover">
-            <div class="p-4">
-              <h4 class="text-lg font-semibold text-pink-700 mb-2">Red Velvet Softie</h4>
-              <p class="text-sm text-gray-600 mb-4">Cream cheese lembut meleleh di tengah</p>
-              <a href="#order" class="text-pink-600 font-medium hover:underline">Pesan Sekarang</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-3d bg-transparent">
-        <div class="card-inner relative bg-white rounded-xl shadow-lg">
-          <div class="card-front">
-            <img src="https://images.unsplash.com/photo-1740755730601-0071b2cd14c8?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Cheese Bomb" class="rounded-t-xl w-full h-48 object-cover">
-            <div class="p-4">
-              <h4 class="text-lg font-semibold text-pink-700 mb-2">Cheese Bomb</h4>
-              <p class="text-sm text-gray-600 mb-4">Bola keju crispy, gurih meledak!</p>
-              <a href="#order" class="text-pink-600 font-medium hover:underline">Pesan Sekarang</a>
-            </div>
+    <div>
+      <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" alt="Delivery" class="feature-img w-24 h-24 mx-auto mb-4">
+      <h3 class="text-xl font-semibold mb-2 text-pink-600">Antar ke Rumah</h3>
+      <p class="text-gray-600">Tinggal klik, pesanan kamu langsung kami kirim ke depan pintu.</p>
+    </div>
+    <div>
+      <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" alt="Halal" class="feature-img w-24 h-24 mx-auto mb-4">
+      <h3 class="text-xl font-semibold mb-2 text-pink-600">Halal & Higienis</h3>
+      <p class="text-gray-600">Dibuat oleh tim dapur bersertifikat, aman dan halal 100%.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Best Seller -->
+<section class="py-16 px-4 bg-pink-100">
+  <div class="max-w-6xl mx-auto text-center mb-8">
+    <h2 class="text-3xl font-bold text-pink-700">Best Seller Kami</h2>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 mx-auto max-w-6xl">
+    <div class="card-3d bg-transparent">
+      <div class="card-inner relative bg-white rounded-xl shadow-lg">
+        <div class="card-front">
+          <img src="https://images.unsplash.com/photo-1673551490243-f29547426841?q=80&w=1964&auto=format&fit=crop" alt="Choco Lava" class="rounded-t-xl w-full h-48 object-cover">
+          <div class="p-4">
+            <h4 class="text-lg font-semibold text-pink-700 mb-2">Choco Lava Melt</h4>
+            <p class="text-sm text-gray-600 mb-4">Cake coklat lumer isi ganache pekat</p>
+            <a href="#order" class="text-pink-600 font-medium hover:underline">Pesan Sekarang</a>
           </div>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- All Menu Carousel -->
-  <section class="py-16 px-4 bg-white">
-    <div class="max-w-6xl mx-auto text-center mb-6">
-      <h2 class="text-3xl font-bold text-pink-700">All Menu</h2>
-    </div>
-    <div class="scrolling-wrapper space-x-6 px-4">
-      <div class="min-w-[250px] bg-pink-100 rounded-xl shadow hover:scale-105 transform transition duration-300">
-        <img src="https://plus.unsplash.com/premium_photo-1691787288736-b107c176ef02?q=80&w=777&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-t-xl w-full h-40 object-cover">
-        <div class="p-4">
-          <h3 class="font-semibold text-lg text-pink-700">Mini Tart</h3>
-          <p class="text-sm text-gray-600">Tart mungil isi buah segar.</p>
-        </div>
-      </div>
-      <div class="min-w-[250px] bg-pink-100 rounded-xl shadow hover:scale-105 transform transition duration-300">
-        <img src="https://plus.unsplash.com/premium_photo-1726754426139-48a6d490f69f?q=80&w=1083&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-t-xl w-full h-40 object-cover">
-        <div class="p-4">
-          <h3 class="font-semibold text-lg text-pink-700">Donat Glaze</h3>
-          <p class="text-sm text-gray-600">Donat empuk, topping mewah.</p>
-        </div>
-      </div>
-      <div class="min-w-[250px] bg-pink-100 rounded-xl shadow hover:scale-105 transform transition duration-300">
-        <img src="https://images.unsplash.com/photo-1601390387542-22acd08d6029?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-t-xl w-full h-40 object-cover">
-        <div class="p-4">
-          <h3 class="font-semibold text-lg text-pink-700">Muffin Berry</h3>
-          <p class="text-sm text-gray-600">Lembut, padat, dan fruity!</p>
-        </div>
-      </div>
-      <div class="min-w-[250px] bg-pink-100 rounded-xl shadow hover:scale-105 transform transition duration-300">
-        <img src="https://images.unsplash.com/photo-1531594652722-292a43e752b4?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-t-xl w-full h-40 object-cover">
-        <div class="p-4">
-          <h3 class="font-semibold text-lg text-pink-700">Macaron</h3>
-          <p class="text-sm text-gray-600">Cemilan manis ala Prancis.</p>
-        </div>
-      </div>
-      <div class="min-w-[250px] bg-pink-100 rounded-xl shadow hover:scale-105 transform transition duration-300">
-        <img src="https://plus.unsplash.com/premium_photo-1691787288736-b107c176ef02?q=80&w=777&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-t-xl w-full h-40 object-cover">
-        <div class="p-4">
-          <h3 class="font-semibold text-lg text-pink-700">Mini Tart</h3>
-          <p class="text-sm text-gray-600">Tart mungil isi buah segar.</p>
-        </div>
-      </div>
-      <div class="min-w-[250px] bg-pink-100 rounded-xl shadow hover:scale-105 transform transition duration-300">
-        <img src="https://plus.unsplash.com/premium_photo-1726754426139-48a6d490f69f?q=80&w=1083&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-t-xl w-full h-40 object-cover">
-        <div class="p-4">
-          <h3 class="font-semibold text-lg text-pink-700">Donat Glaze</h3>
-          <p class="text-sm text-gray-600">Donat empuk, topping mewah.</p>
-        </div>
-      </div>
-      <div class="min-w-[250px] bg-pink-100 rounded-xl shadow hover:scale-105 transform transition duration-300">
-        <img src="https://images.unsplash.com/photo-1601390387542-22acd08d6029?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-t-xl w-full h-40 object-cover">
-        <div class="p-4">
-          <h3 class="font-semibold text-lg text-pink-700">Muffin Berry</h3>
-          <p class="text-sm text-gray-600">Lembut, padat, dan fruity!</p>
-        </div>
-      </div>
-      <div class="min-w-[250px] bg-pink-100 rounded-xl shadow hover:scale-105 transform transition duration-300">
-        <img src="https://images.unsplash.com/photo-1531594652722-292a43e752b4?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-t-xl w-full h-40 object-cover">
-        <div class="p-4">
-          <h3 class="font-semibold text-lg text-pink-700">Macaron</h3>
-          <p class="text-sm text-gray-600">Cemilan manis ala Prancis.</p>
+    <div class="card-3d bg-transparent">
+      <div class="card-inner relative bg-white rounded-xl shadow-lg">
+        <div class="card-front">
+          <img src="https://images.unsplash.com/photo-1586788680434-30d324b2d46f?q=80&w=951&auto=format&fit=crop" alt="Red Velvet" class="rounded-t-xl w-full h-48 object-cover">
+          <div class="p-4">
+            <h4 class="text-lg font-semibold text-pink-700 mb-2">Red Velvet Softie</h4>
+            <p class="text-sm text-gray-600 mb-4">Cream cheese lembut meleleh di tengah</p>
+            <a href="#order" class="text-pink-600 font-medium hover:underline">Pesan Sekarang</a>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+    <div class="card-3d bg-transparent">
+      <div class="card-inner relative bg-white rounded-xl shadow-lg">
+        <div class="card-front">
+          <img src="https://images.unsplash.com/photo-1740755730601-0071b2cd14c8?q=80&w=1170&auto=format&fit=crop" alt="Cheese Bomb" class="rounded-t-xl w-full h-48 object-cover">
+          <div class="p-4">
+            <h4 class="text-lg font-semibold text-pink-700 mb-2">Cheese Bomb</h4>
+            <p class="text-sm text-gray-600 mb-4">Bola keju crispy, gurih meledak!</p>
+            <a href="#order" class="text-pink-600 font-medium hover:underline">Pesan Sekarang</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- Order Section -->
-  <section id="order" class="py-16 px-4 bg-white text-center">
-    <h2 class="text-2xl font-bold text-pink-700 mb-4">Yuk, Manis-Manis Bareng Lumerin!</h2>
-    <p class="text-gray-600 mb-6">Isi form pemesanan atau DM kami di Instagram @lumerin.aja</p>
-    <a href="https://instagram.com/lumerin.aja" target="_blank" class="inline-block px-6 py-3 bg-pink-600 text-white rounded-full font-semibold shadow hover:bg-pink-700 transition">Pesan via Instagram</a>
-  </section>
+<!-- All Menu Carousel -->
+<section class="py-16 px-4 bg-white">
+  <div class="max-w-6xl mx-auto text-center mb-6">
+    <h2 class="text-3xl font-bold text-pink-700">All Menu</h2>
+  </div>
+  <div class="scrolling-container">
+    <div class="scrolling-wrapper px-4">
+      <!-- Duplicate loop for seamless scroll -->
+      <div class="flex gap-6">
+        <div class="min-w-[250px] bg-pink-100 rounded-xl shadow">
+          <img src="https://plus.unsplash.com/premium_photo-1691787288736-b107c176ef02?q=80&w=777&auto=format&fit=crop" class="rounded-t-xl w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold text-lg text-pink-700">Mini Tart</h3>
+            <p class="text-sm text-gray-600">Tart mungil isi buah segar.</p>
+          </div>
+        </div>
+        <div class="min-w-[250px] bg-pink-100 rounded-xl shadow">
+          <img src="https://plus.unsplash.com/premium_photo-1726754426139-48a6d490f69f?q=80&w=1083&auto=format&fit=crop" class="rounded-t-xl w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold text-lg text-pink-700">Donat Glaze</h3>
+            <p class="text-sm text-gray-600">Donat empuk, topping mewah.</p>
+          </div>
+        </div>
+        <div class="min-w-[250px] bg-pink-100 rounded-xl shadow">
+          <img src="https://images.unsplash.com/photo-1601390387542-22acd08d6029?q=80&w=1331&auto=format&fit=crop" class="rounded-t-xl w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold text-lg text-pink-700">Muffin Berry</h3>
+            <p class="text-sm text-gray-600">Lembut, padat, dan fruity!</p>
+          </div>
+        </div>
+        <div class="min-w-[250px] bg-pink-100 rounded-xl shadow">
+          <img src="https://images.unsplash.com/photo-1531594652722-292a43e752b4?q=80&w=1331&auto=format&fit=crop" class="rounded-t-xl w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold text-lg text-pink-700">Macaron</h3>
+            <p class="text-sm text-gray-600">Cemilan manis ala Prancis.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Repeat -->
+      <div class="flex gap-6">
+        <div class="min-w-[250px] bg-pink-100 rounded-xl shadow">
+          <img src="https://plus.unsplash.com/premium_photo-1691787288736-b107c176ef02?q=80&w=777&auto=format&fit=crop" class="rounded-t-xl w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold text-lg text-pink-700">Mini Tart</h3>
+            <p class="text-sm text-gray-600">Tart mungil isi buah segar.</p>
+          </div>
+        </div>
+        <div class="min-w-[250px] bg-pink-100 rounded-xl shadow">
+          <img src="https://plus.unsplash.com/premium_photo-1726754426139-48a6d490f69f?q=80&w=1083&auto=format&fit=crop" class="rounded-t-xl w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold text-lg text-pink-700">Donat Glaze</h3>
+            <p class="text-sm text-gray-600">Donat empuk, topping mewah.</p>
+          </div>
+        </div>
+        <div class="min-w-[250px] bg-pink-100 rounded-xl shadow">
+          <img src="https://images.unsplash.com/photo-1601390387542-22acd08d6029?q=80&w=1331&auto=format&fit=crop" class="rounded-t-xl w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold text-lg text-pink-700">Muffin Berry</h3>
+            <p class="text-sm text-gray-600">Lembut, padat, dan fruity!</p>
+          </div>
+        </div>
+        <div class="min-w-[250px] bg-pink-100 rounded-xl shadow">
+          <img src="https://images.unsplash.com/photo-1531594652722-292a43e752b4?q=80&w=1331&auto=format&fit=crop" class="rounded-t-xl w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold text-lg text-pink-700">Macaron</h3>
+            <p class="text-sm text-gray-600">Cemilan manis ala Prancis.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer class="py-6 text-center text-sm text-gray-500">
-    © 2025 Lumerin Aja by Nabila C. All rights reserved.
-  </footer>
+<!-- Order Section -->
+<section id="order" class="py-16 px-4 bg-white text-center">
+  <h2 class="text-2xl font-bold text-pink-700 mb-4">Yuk, Manis-Manis Bareng Lumerin!</h2>
+  <p class="text-gray-600 mb-6">Isi form pemesanan atau DM kami di Instagram @lumerin.aja</p>
+  <a href="https://instagram.com/lumerin.aja" target="_blank" class="inline-block px-6 py-3 bg-pink-600 text-white rounded-full font-semibold shadow hover:bg-pink-700 transition">Pesan via Instagram</a>
+</section>
+
+<!-- Footer -->
+<footer class="py-6 text-center text-sm text-gray-500">
+  © 2025 Lumerin Aja by Nabila C. All rights reserved.
+</footer>
+
 </body>
 </html>
